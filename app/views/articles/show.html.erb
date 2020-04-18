@@ -1,5 +1,13 @@
-<h1><%= link_to "Wikinonimous", articles_path %></h1>
+<%= render "nav_bar", article: @articles %>
+
+<%= link_to edit_article_path(@article.id) do %>
+  <button type="button">Edit Article</button>
+<% end %>
+
+<%= link_to "Delete",
+    article_path(@article),
+    method: :delete,
+    data: { confirm: "Are you sure?" } %>
 
 <h2><%= @article.title %></h2>
 <p><%= @article.content %></p>
-
